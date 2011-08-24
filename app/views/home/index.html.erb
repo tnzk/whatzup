@@ -1,0 +1,43 @@
+<p><%= flash[:notice] %></p>
+<header class="section_tit">
+ <h3>Upload</h3>
+</header>
+<%= form_tag( {:controller => 'file', :action => 'create'}, {:multipart => true, :method => 'post'}) do %>
+<table>
+<tr>
+  <th><label for="file">File</label> (Up to 25MB)</th>
+  <td><%= file_field_tag 'file' %></td>
+</tr>
+<tr>
+  <th><label for="password2download">Password to download</label></th>
+  <td><%= text_field_tag 'password2download' %></td>
+</tr>
+<tr>
+  <th><label for="password2delete">Password to delete</label></th>
+  <td><%= text_field_tag 'password2delete' %></td>
+</tr>
+<tr>
+  <th><label for="comment">Comment</label></th>
+  <td><%= text_field_tag 'comment' %></td>
+</tr>
+<tr>
+  <td colspan="2"><%= submit_tag 'Upload' %> No fields required. Make sure anyone can delete the file if you didn't set delete password.</td>
+</tr>
+</table>
+<% end %>
+
+<header class="section_tit">
+  <h3>Files</h3>
+</header>
+<%= paginate @assets %>
+<table id="files">
+<% @assets.each do |asset| %>
+  <tr>
+    <td><%= asset.public? ? link_to('[Download]', "/file/download?id=#{asset.id}") : '' %></td>
+    <td><%= link_to asset.name, "/file/show?id=#{asset.id}" %></td>
+    <td><%= asset.size_mb %> MB</td>
+    <td><%= asset.comment %></td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @assets %>

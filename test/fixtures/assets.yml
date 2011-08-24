@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  comment: MyString
+  password2delete: MyString
+  password2download: MyString
+  storage_size: 1
+  viewed: 1
+  downloaded: 1
+
+two:
+  name: MyString
+  comment: MyString
+  password2delete: MyString
+  password2download: MyString
+  storage_size: 1
+  viewed: 1
+  downloaded: 1

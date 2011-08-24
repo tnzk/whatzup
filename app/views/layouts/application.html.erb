@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Whatzup?<%= @title ? " - #{@title}" : '' %></title>
+  <link href="/style.css" rel="stylesheet" type="text/css" media="screen" />
+  <script src="/modernizr-1.1.min.js"></script>
+</head>
+<body>
+  <header id="site_head"><!--useful to create the 960px limit-->
+    <div class="header_cont">
+    <h1><a href="/">Whatzup?</a></h1>
+    </div>
+  </header>
+  
+  <div id="main_content"><!--useful to create the 960px limit-->
+
+    <section id="last_posts"><!--section for recent posts-->
+    <%= yield %>    
+    </section>
+    
+    <footer class="bottom">
+      <p>Contents and resources released under Creative Commons License.</p>
+      <p>Design and code by Piervincenzo Madeo - 2010 Mr Hurley Theme - A free HTM5 and CSS3 template.</p>
+    </footer>
+  </div>
+  
+  
+  
+</body>
+</html>

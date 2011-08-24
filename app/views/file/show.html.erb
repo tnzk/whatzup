@@ -1,0 +1,53 @@
+<header class="section_tit">
+  <h3>File</h3>
+</header>
+
+<table>
+  <tr>
+    <th>File name</th>
+    <td colspan="2">
+    <% if @asset.public? %>
+      <h2><%= link_to @asset.name, "/file/download?id=#{@asset.id}" %></h2>
+    <% else %>
+      <h2><%= @asset.name %> (password required)</h2>
+    <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>Uploaded at </th>
+    <td colspan="2"><time datetime="<%= @asset.updated_at.strftime('%Y-%m-%d')%>"> <%= @asset.updated_at.strftime('%B, %d, %Y') %></time></td>
+  </tr>
+    <% if not @asset.public? %>
+  <tr>
+    <%= form_tag( {:controller => 'file', :action => 'private_download'}, {:method => 'post'}) do %>
+    <th>Download</th>
+    <td>
+      <p>
+        <%= text_field_tag 'password' %>
+        <%= hidden_field_tag 'id', @asset.id %>
+      </p>
+    </td>
+    <td><%= submit_tag 'Download' %></td>
+    <% end %>
+  </tr>
+  <% end %>
+  <tr>
+    <%= form_tag( {:controller => 'file', :action => 'delete'}, {:method => 'post'}) do %>
+    <th>Delete</th>
+    <td>
+      <p>
+        <%= text_field_tag 'password' %>
+        <%= hidden_field_tag 'id', @asset.id %>
+      </p>
+    </td>
+    <td><%= submit_tag 'Delete' %></td>
+    <% end %>
+  </tr>
+  <tr>
+    <th>Viewed </th>
+    <td colspan="2"><%= @asset.viewed %> viewed, <%= @asset.downloaded %> downloaded</td>
+  </tr>
+
+</table>
+
+
