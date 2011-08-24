@@ -55,6 +55,10 @@ header#site_head {
 		padding-top: 15px;
 	}
 	
+	.header_cont p {
+	    padding-left: 25em;
+	}
+
 	.header_cont h1 {
 		float: left;
 	}

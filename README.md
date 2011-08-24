@@ -14,7 +14,7 @@ Working demo is available [here](http://whatzup.heroku.com/). You can also set u
 
 Get your a pair of account name and secret access key. It can be obtained from [Windows Azure control panel](http://windows.azure.com).
 
-Paste them onto 5th and 6th line.
+Paste them onto 5th and 6th line of config/initializer/waz.rb.
 
     cred = {                        
       'production' =>               
