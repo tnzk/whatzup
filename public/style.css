@@ -427,3 +427,12 @@ th {
     padding-right: 1em;
     text-align: right;
 }
+
+p#flash {
+    font-weight: bold;
+    color: #500;
+    height: 1em;
+    margin: 1em auto;
+    padding: 0.5em 1em;
+    background-color: #fcc;
+}
